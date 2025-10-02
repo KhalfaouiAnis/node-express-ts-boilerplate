@@ -3,6 +3,10 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "types": ["jest"],
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
     "module": "nodenext",
     "target": "esnext",
     "baseUrl": "./src",
@@ -10,6 +14,8 @@
       "@middlewares/*": ["middlewares/*"],
       "@routes/*": ["routes/*"],
       "@libs/*": ["libs/*"],
+      "@models/*": ["models/*"],
+      "@utils/*": ["utils/*"],
     },
     "strict": true,
     "esModuleInterop": true,

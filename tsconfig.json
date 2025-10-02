@@ -2,13 +2,19 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
     "module": "nodenext",
     "target": "esnext",
     "baseUrl": "./src",
     "paths": {
       "@middlewares/*": ["middlewares/*"],
       "@routes/*": ["routes/*"],
+      "@models/*": ["models/*"],
       "@libs/*": ["libs/*"],
+      "@utils/*": ["utils/*"],
     },
 
     "strict": true,

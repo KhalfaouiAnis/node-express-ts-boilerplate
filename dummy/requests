@@ -1,0 +1,50 @@
+Create a admin account
+curl -X POST http://localhost:5000/auth/register \
+-H "Content-Type: application/json" \
+-d '{
+  "username": "john2",
+  "email": "john2@example.com",
+  "password": "password123",
+  "role": "ADMIN"
+}'
+
+Create a user acoount
+curl -X POST http://localhost:5000/auth/register \
+-H "Content-Type: application/json" \
+-d '{
+  "username": "john",
+  "email": "john@example.com",
+  "password": "password123",
+  "role": "USER"
+}'
+
+User Login
+curl -X POST http://localhost:5000/auth/login \
+-H "Content-Type: application/json" \
+-d '{
+  "username": "john",
+  "password": "password123"
+}'
+
+Admin Login
+curl -X POST http://localhost:5000/auth/login \
+-H "Content-Type: application/json" \
+-d '{
+  "username": "john2",
+  "password": "password123"
+}'
+
+JWT protected route
+curl -X GET http://localhost:5000/protected/profile \
+-H "Authorization: Bearer your_jwt_token_here"
+
+Role-Based Protected Route
+curl -X GET http://localhost:5000/protected/admin \
+-H "Authorization: Bearer your_admin_jwt_token_here"
+
+Testing Invalid Token
+curl -X GET http://localhost:5000/protected/profile \
+-H "Authorization: Bearer invalid_token"
+
+Testing Missing Token
+curl -X GET http://localhost:5000/protected/profile
