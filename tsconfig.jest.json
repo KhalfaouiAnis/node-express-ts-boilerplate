@@ -5,7 +5,12 @@
     "types": ["jest"],
     "module": "nodenext",
     "target": "esnext",
-
+    "baseUrl": "./src",
+    "paths": {
+      "@middlewares/*": ["middlewares/*"],
+      "@routes/*": ["routes/*"],
+      "@libs/*": ["libs/*"],
+    },
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
