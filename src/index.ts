@@ -10,9 +10,13 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 
 import indexRouter from '@routes/indexRouter';
-import loggerRouter from '@routes/loggerRouter';
+import courseRouter from '@routes/courseRouter';
+import enrollmentRouter from '@routes/enrollmentRouter';
+import progressRouter from '@routes/progressRouter';
 import authRouter from '@routes/authRouter';
-import protectedRouter from '@routes/protectedRouter';
+import instructorRouter from '@routes/instructorRouter';
+import userRouter from '@routes/userRouter';
+import path from 'path';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -20,13 +24,17 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(helmet());
 app.use(cors());
-
 app.use(morganMiddleware);
 
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+
 app.use('/', indexRouter);
-app.use('/logger', loggerRouter);
-app.use('/auth', authRouter);
-app.use('/protected', protectedRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/courses', courseRouter);
+app.use('/api/enrollments', enrollmentRouter);
+app.use('/api/progress', progressRouter);
+app.use('/api/users', userRouter);
+app.use('/api/instructors', instructorRouter);
 
 const swaggerOptions = {
   swaggerDefinition: {

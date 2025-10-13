@@ -10,10 +10,11 @@
     "target": "esnext",
     "baseUrl": "./src",
     "paths": {
+      "@controllers/*": ["controllers/*"],
+      "@services/*": ["services/*"],
+      "@libs/*": ["libs/*"],
       "@middlewares/*": ["middlewares/*"],
       "@routes/*": ["routes/*"],
-      "@models/*": ["models/*"],
-      "@libs/*": ["libs/*"],
       "@utils/*": ["utils/*"],
     },
 
@@ -21,7 +22,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    // "isolatedModules": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     // "lib": ["esnext"],
     // "types": ["node"],
     // and npm install -D @types/node
@@ -51,5 +53,5 @@
     // "moduleDetection": "force",
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

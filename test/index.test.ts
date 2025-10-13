@@ -1,6 +1,6 @@
 import { app, server } from '../src/index';
 
-const request = require('supertest');
+import request from 'supertest';
 
 describe('GET /', () => {
   afterAll(() => server.close());

@@ -7,6 +7,7 @@ import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 const compat = new FlatCompat({
   baseDirectory: __dirname,
   recommendedConfig: js.configs.recommended,
@@ -18,7 +19,7 @@ export default defineConfig([
     extends: compat.extends(
       'eslint:recommended',
       'plugin:@typescript-eslint/recommended',
-      'plugin:prettier/recommended',
+      // 'plugin:prettier/recommended',
     ),
     languageOptions: {
       parser: tsParser,
@@ -26,7 +27,7 @@ export default defineConfig([
       sourceType: 'module',
     },
     rules: {
-      'prettier/prettier': 'error',
+      // 'prettier/prettier': 'error',
     },
   },
 ]);

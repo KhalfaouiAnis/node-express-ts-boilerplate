@@ -4,6 +4,14 @@ declare global {
   namespace Express {
     interface Request {
       user?: UserPayload;
+      file?: Express.Multer.File;
+      params: {
+        courseId?: string;
+        reviewId?: string;
+        sectionId?: string;
+        videoId?: string;
+        enrollmentId?: string;
+      };
     }
   }
 }
